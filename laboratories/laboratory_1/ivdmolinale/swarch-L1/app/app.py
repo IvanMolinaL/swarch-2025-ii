@@ -1,5 +1,7 @@
 from flask import Flask
 from config import Config, db, migrate
+import time
+import os
 from controllers.genre_controller import genre_bp
 from controllers.book_controller import book_bp
 
@@ -11,8 +13,22 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
     
-    with app.app_context():
-        db.create_all()
+    # Esperar a que la base de datos esté lista con retries
+    max_retries = 10
+    retry_delay = 5
+
+
+    for attempt in range(max_retries):
+        try:
+            with app.app_context():
+                db.create_all()
+                break
+        except Exception as e:
+            if attempt < max_retries - 1:
+                print(f"Error: {str(e)}")
+                time.sleep(retry_delay)
+            else:
+                break
     
     # Register blueprints
     app.register_blueprint(genre_bp, url_prefix="/genres")
