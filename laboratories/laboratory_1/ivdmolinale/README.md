@@ -60,9 +60,12 @@ La consistencia de datos garantiza que las operaciones sobre la información man
 La usabilidad desde la perspectiva del usuario final se refiere a la facilidad con la que los usuarios pueden realizar tareas específicas dentro del sistema, incluyendo la intuitividad de la interfaz y la claridad del flujo de trabajo.
 
 ## Testing
+### Generos literarios y Libros agregados
 ![Testing image 1](Testing1.png)
 ![Testing image 2](Testing2.png)
+### Terminal
 ![Testing image 3](Testing3.png)
+### Elementos evidenciados en Database 
 ![Testing image 4](Testing4.png)
 ![Testing image 5](Testing5.png)
 ![Testing image 6](Testing6.png)
